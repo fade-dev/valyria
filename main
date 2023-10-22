@@ -1,0 +1,17 @@
+# bet must be in 1st place, and an int
+try:
+    bet = int(param[1])
+    
+    if not (0 <= bet <= 1000000):
+        # 'bet' is outside the valid range
+        color = discord_error_rgb_code
+        embed = discord.Embed(description=f"{emoji_error}  Bet must be between 0 and 1,000,000.\n\nUsage:\n`roulette <bet> <space>`", color=color)
+        embed.set_author(name=username, icon_url=user_pfp)
+        await channel.send(embed=embed)
+        return
+except:
+    color = discord_error_rgb_code
+    embed = discord.Embed(description=f"{emoji_error}  Invalid `<bet>` argument given.\n\nUsage:\n`roulette <bet> <space>`", color=color)
+    embed.set_author(name=username, icon_url=user_pfp)
+    await channel.send(embed=embed)
+    return
